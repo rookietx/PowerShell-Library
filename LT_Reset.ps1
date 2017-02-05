@@ -8,7 +8,6 @@ Remove-ItemProperty -Path "HKLM:\Software\LabTech\Service" -Name "ID" -ErrorActi
 Remove-ItemProperty -Path "HKLM:\Software\LabTech\Service" -Name "ClientID" -ErrorAction SilentlyContinue
 Remove-ItemProperty -Path "HKLM:\Software\LabTech\Service" -Name "LocationID" -ErrorAction SilentlyContinue
 Remove-ItemProperty -Path "HKLM:\Software\LabTech\Service" -Name "MAC" -ErrorAction SilentlyContinue
-Remove-ItemProperty -Path "HKLM:\Software\LabTech\Service" -Name "ServerPassword" -ErrorAction SilentlyContinue
 
 Set-ItemProperty -Path "HKLM:\Software\LabTech\Service" -Name "ServerPassword" -Value 'RL1ZY/o51CvU6KGsYQr1eA=='
 
