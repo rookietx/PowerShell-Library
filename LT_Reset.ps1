@@ -9,7 +9,7 @@ Remove-ItemProperty -Path "HKLM:\Software\LabTech\Service" -Name "ClientID" -Err
 Remove-ItemProperty -Path "HKLM:\Software\LabTech\Service" -Name "LocationID" -ErrorAction SilentlyContinue
 Remove-ItemProperty -Path "HKLM:\Software\LabTech\Service" -Name "MAC" -ErrorAction SilentlyContinue
 
-Set-ItemProperty -Path "HKLM:\Software\LabTech\Service" -Name "ServerPassword" -Value 'RL1ZY/o51CvU6KGsYQr1eA=='
+Set-ItemProperty -Path "HKLM:\Software\LabTech\Service" -Name "ServerPassword" -Value 'RL1ZY/o51CvU6KGsYQr1eA==' -ErrorAction SilentlyContinue
 
 Start-Service -Name "LTService"
-Start-Service -Name "LTService"
+Start-Service -Name "LTSVCMon"
