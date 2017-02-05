@@ -1,7 +1,7 @@
 ##Kill Processes 
-kill -processname LTSVC -Force -ErrorAction SilentlyContinue
-kill -processname LTSvcMon -Force -ErrorAction SilentlyContinue
-kill -processname LTTray -Force -ErrorAction SilentlyContinue
+kill -processname LTSVC -Force
+kill -processname LTSvcMon -Force
+kill -processname LTTray -Force
 
 ##STOP Services 
 Stop-Service -Name 'LTService' -Force -ErrorAction SilentlyContinue
@@ -14,5 +14,5 @@ Remove-ItemProperty -Path 'HKLM:\Software\LabTech\Service' -Name 'LocationID' -E
 Remove-ItemProperty -Path 'HKLM:\Software\LabTech\Service' -Name 'MAC' -ErrorAction SilentlyContinue
 
 ##START LabTech Services
-Start-Service -Name 'LTService'
-Start-Service -Name 'LTSVCMon'
+#Start-Service -Name 'LTService'
+#Start-Service -Name 'LTSVCMon'
