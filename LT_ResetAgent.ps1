@@ -1,7 +1,5 @@
 ##Kill Processes 
-kill -processname LTSVC -Force
-kill -processname LTSvcMon -Force
-kill -processname LTTray -Force
+kill -processname LTSVC, LTSVCMon, LTTray -Force -ErrorAction SilentlyContinue
 
 ##STOP Services 
 Stop-Service -Name 'LTService' -Force -ErrorAction SilentlyContinue
