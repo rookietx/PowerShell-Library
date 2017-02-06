@@ -1,16 +1,12 @@
-##Kill Processes 
+##Kill Agent
 kill -processname LTSVC, LTSVCMon, LTTray -Force -ErrorAction SilentlyContinue
 
-##STOP Services 
-Stop-Service -Name 'LTService' -Force -ErrorAction SilentlyContinue
-Stop-Service -Name 'LTSVCMon' -Force -ErrorAction SilentlyContinue
-
-##RESET LabTech Agent
+##Reset Agent
 Remove-ItemProperty -Path 'HKLM:\Software\LabTech\Service' -Name 'ID' -ErrorAction SilentlyContinue
 Remove-ItemProperty -Path 'HKLM:\Software\LabTech\Service' -Name 'ClientID' -ErrorAction SilentlyContinue
 Remove-ItemProperty -Path 'HKLM:\Software\LabTech\Service' -Name 'LocationID' -ErrorAction SilentlyContinue
 Remove-ItemProperty -Path 'HKLM:\Software\LabTech\Service' -Name 'MAC' -ErrorAction SilentlyContinue
 
-##START LabTech Services
-#Start-Service -Name 'LTService'
-#Start-Service -Name 'LTSVCMon'
+##Restart Agent
+Restart-Service -Name 'LTService'
+Restart-Service -Name 'LTSVCMon'
