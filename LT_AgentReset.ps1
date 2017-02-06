@@ -10,5 +10,5 @@ Remove-ItemProperty -Path 'HKLM:\Software\LabTech\Service' -Name 'ClientID' -Err
 Remove-ItemProperty -Path 'HKLM:\Software\LabTech\Service' -Name 'LocationID' -ErrorAction SilentlyContinue
 Remove-ItemProperty -Path 'HKLM:\Software\LabTech\Service' -Name 'MAC' -ErrorAction SilentlyContinue
 
-Start-Service -Name 'LTService'
 Start-Service -Name 'LTSVCMon'
+Start-Service -Name 'LTService'
