@@ -13,10 +13,7 @@ Catch{
 Set-ItemProperty -Path "HKLM:\SYSTEM\CurrentControlSet\Services\LanmanServer\Parameters" SMB1 -Type DWORD -Value 0 -Force -ErrorAction SilentlyContinue
 Set-ItemProperty -Path "HKLM:\SYSTEM\CurrentControlSet\Services\LanmanServer\Parameters" SMB2 -Type DWORD -Value 1 -Force -ErrorAction SilentlyContinue
 
-Write-Output "SMBv1 is Disabled"
-
 #Uninstall SMBv1
-Write-Output "Uninstalling SMBv1"
 if((Get-WmiObject -class Win32_OperatingSystem).Name -like '*server*'){
     Remove-WindowsFeature FS-SMB1 -ErrorAction SilentlyContinue | Out-Null
 }
