@@ -1,6 +1,6 @@
 #Disable SMBv1
 #.MORE INFO: http://bit.ly/2qkf3cC
-
+function Disable-SMBv1 {
 try{
     Set-SmbServerConfiguration -EnableSMB1Protocol $false -EnableSMB2Protocol $true -Confirm:$False -ErrorAction SilentlyContinue
 }
@@ -19,4 +19,5 @@ if((Get-WmiObject -class Win32_OperatingSystem).Name -like '*server*'){
 }
 else{
     Disable-WindowsOptionalFeature -Online -FeatureName smb1protocol -NoRestart -ErrorAction SilentlyContinue | Out-Null
+}
 }
