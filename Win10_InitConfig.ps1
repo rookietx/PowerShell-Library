@@ -59,6 +59,7 @@ C:\windows\explorer.exe
 
 
 ##Windows Update settings
+New-ItemProperty -Path 'HKLM:\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Winlogon' -Name ARSOUserConsent -PropertyType DWORD -Value '1' -ea SilentlyContinue | Out-Null
 Set-ItemProperty -Path 'HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\DeliveryOptimization\Config' -Name 'DODownloadMode' -Value '0' -ea SilentlyContinue | Out-Null
 Set-Service AppIDSvc -StartupType Automatic -ea SilentlyContinue | Out-Null
 Set-Service BITS -StartupType Automatic -ea SilentlyContinue | Out-Null
