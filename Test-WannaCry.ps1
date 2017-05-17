@@ -65,7 +65,7 @@
     https://grposh.github.io
 #>
 
-
+function Test-WannaCry {
 [CmdletBinding(
     DefaultParameterSetName = "ByComputerName"
 )]
@@ -262,4 +262,5 @@ process {
             }
         }
     }
+}
 }
