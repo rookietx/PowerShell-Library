@@ -190,9 +190,6 @@ process {
                 }
 
                 $output = [PSCustomObject]@{
-                    PSComputerName = $nameValue
-                    OperatingSystemCaption = $osInformation.Caption
-                    OperatingSystemVersion = $osInformation.Version
                     Vulnerable = $vulnerable
                     AppliedHotFixID = $appliedHotFixId -join "|"
                     SMB1FeatureEnabled = $smb1FeatureEnabled
