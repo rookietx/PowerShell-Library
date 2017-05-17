@@ -190,10 +190,8 @@ process {
                 }
 
                 $output = [PSCustomObject]@{
-                    Vulnerable = $vulnerable
-                    AppliedHotFixID = $appliedHotFixId -join "|"
-                    SMB1FeatureEnabled = $smb1FeatureEnabled
-                    SMB1ProtocolEnabled = $smb1ProtocolEnabled
+                    $vulnerable
+                    
                 }
 
                 Write-Output -InputObject $output
@@ -246,10 +244,7 @@ process {
                 }
 
                 $output = [PSCustomObject]@{
-                    Vulnerable = $vulnerable
-                    AppliedHotFixID = $appliedHotFixId -join "|"
-                    SMB1FeatureEnabled = $smb1FeatureEnabled
-                    SMB1ProtocolEnabled = $smb1ProtocolEnabled
+                    $vulnerable
                 }
 
                 Write-Output -InputObject $output
