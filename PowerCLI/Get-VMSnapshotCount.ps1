@@ -20,7 +20,7 @@
 .Exmaple
     PS C:\> Get-Item $env:WinDir\System32\WindowsPowerShell\v1.0\powershell.exe | .\Get-VMSnapshotCount.ps1 -esxhost 192.168.10.3 -user root -pass P@ssw0rd
 .Example
-    iwr https://raw.githubusercontent.com/MartynKeigher/PowerShell-Library/master/ESX/Get-VMSnapshotCount.ps1 | iex; Get-VMSnapshotCount.ps1 -esxhost 192.168.10.3 -user root -pass P@ssw0rd
+    iwr https://raw.githubusercontent.com/MartynKeigher/PowerShell-Library/master/PowerCLI/Get-VMSnapshotCount.ps1 | iex; Get-VMSnapshotCount.ps1 -esxhost 192.168.10.3 -user root -pass P@ssw0rd
 .Notes
     Requires the VMWare.PowerCLI to be loaded.
 .LINK
