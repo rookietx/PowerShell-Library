@@ -1,6 +1,6 @@
 <#PSScriptInfo
 .Version
-    1.0
+    1.1
 .Author
     Martyn T. Keigher (@martynkeigher)
 .Tags
@@ -8,7 +8,8 @@
 .Github URL
     https://github.com/MartynKeigher/PowerShell-Library
 .ReleaseNotes 
-    Initial Release.
+    1.0 - Initial Release.
+    1.1 - Edited output for monitor/ingest purposes.
 #>
 
 
@@ -40,5 +41,6 @@ function Get-VMSnapshotCount {
         
 Import-Module VMware.PowerCLI -wa SilentlyContinue | Out-Null
 Connect-VIServer -Server $esxhost -User $user -Password $pass -wa SilentlyContinue -Force | Out-Null
-(Get-Snapshot -VM $vm).count
+$count = (Get-Snapshot -VM $vm).count
+"Count: $count"
 }
