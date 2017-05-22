@@ -39,7 +39,7 @@ function Get-VMSnapshotCount {
         [string]$vm = $env:COMPUTERNAME
         ) 
         
-Import-Module VMware.PowerCLI -wa SilentlyContinue | Out-Null
+Import-Module VMware.VimAutomation.Core -wa SilentlyContinue | Out-Null
 Connect-VIServer -Server $esxhost -User $user -Password $pass -wa SilentlyContinue -Force | Out-Null
 $count = (Get-Snapshot -VM $vm).count
 "Count: $count"
