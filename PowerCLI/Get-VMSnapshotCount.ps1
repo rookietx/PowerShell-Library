@@ -39,11 +39,11 @@ function Get-VMSnapshotCount {
         [string]$vm = $env:COMPUTERNAME
         ) 
         
-Import-Module VMware.VimAutomation.Core -wa SilentlyContinue | Out-Null
-Set-PowerCLIConfiguration -InvalidCertificateAction Ignore -Scope AllUsers -confirm:$false -wa SilentlyContinue| Out-Null
-Set-PowerCLIConfiguration -ParticipateInCEIP $false -Scope AllUsers -confirm:$false -wa SilentlyContinue | Out-Null
-Set-PowerCLIConfiguration -DisplayDeprecationWarnings $false -Scope AllUsers -confirm:$false -wa SilentlyContinue | Out-Null
-Connect-VIServer -Server $esxhost -User $user -Password $pass -wa SilentlyContinue -Force -wa SilentlyContinue | Out-Null
+Import-Module VMware.VimAutomation.Core | Out-Null
+Set-PowerCLIConfiguration -InvalidCertificateAction Ignore -Scope AllUsers -confirm:$false | Out-Null
+Set-PowerCLIConfiguration -ParticipateInCEIP $false -Scope AllUsers -confirm:$false | Out-Null
+Set-PowerCLIConfiguration -DisplayDeprecationWarnings $false -Scope AllUsers -confirm:$false | Out-Null
+Connect-VIServer -Server $esxhost -User $user -Password $pass -wa SilentlyContinue -Force | Out-Null
 $count = (Get-Snapshot -VM $vm).count
 "Count: $count"
 }
