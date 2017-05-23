@@ -1,6 +1,6 @@
 <#PSScriptInfo
 .Version
-    1.1
+    1.2
 .Author
     Martyn T. Keigher (@martynkeigher)
 .Tags
@@ -10,6 +10,7 @@
 .ReleaseNotes 
     1.0 - Initial Release.
     1.1 - Edited output for monitor/ingest purposes.
+    1.2 - Change module to VimAutomation.Core for cleaner output.
 #>
 
 
