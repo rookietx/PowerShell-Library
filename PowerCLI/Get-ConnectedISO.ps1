@@ -44,6 +44,6 @@ Set-PowerCLIConfiguration -InvalidCertificateAction Ignore -Scope AllUsers -conf
 Set-PowerCLIConfiguration -ParticipateInCEIP $false -Scope AllUsers -confirm:$false | Out-Null
 Set-PowerCLIConfiguration -DisplayDeprecationWarnings $false -Scope AllUsers -confirm:$false | Out-Null
 Connect-VIServer -Server $esxhost -User $user -Password $pass -wa SilentlyContinue -Force | Out-Null
-$iso = (Get-VM | ?{$_.Name -eq '$vm'} | Get-CDDrive | ?{$_.IsoPath -ne $null} |  Select-Object -ExpandProperty IsoPath)
+$iso = (Get-VM | ?{$_.Name -eq $vm} | Get-CDDrive | ?{$_.IsoPath -ne $null} |  Select-Object -ExpandProperty IsoPath)
 "$iso"
 }
