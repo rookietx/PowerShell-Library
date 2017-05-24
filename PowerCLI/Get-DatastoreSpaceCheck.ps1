@@ -43,5 +43,5 @@ Set-PowerCLIConfiguration -ParticipateInCEIP $false -Scope AllUsers -confirm:$fa
 Set-PowerCLIConfiguration -DisplayDeprecationWarnings $false -Scope AllUsers -confirm:$false | Out-Null
 Connect-VIServer -Server $esxhost -User $user -Password $pass -wa SilentlyContinue -Force | Out-Null
 New-VIProperty -Name PercentFree -ObjectType Datastore -Value {"{0:N2}" -f ($args[0].FreeSpaceMB/$args[0].CapacityMB*100)+'% free'} -Force | Out-Null
-Get-Datastore | ?{$_.PercentFree -le 10} | ft -HideTableHeaders Name,PercentFree
+Get-Datastore | ?{$_.PercentFree -le 30} | ft -HideTableHeaders Name,PercentFree
 }
