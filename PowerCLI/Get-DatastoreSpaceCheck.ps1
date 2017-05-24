@@ -29,7 +29,7 @@
     Powershell Gallery: https://www.powershellgallery.com/packages/VMware.PowerCLI/6.5.1.5377412
 #>
 
-function Get-DataStoreDiskStats {
+function Get-DatastoreSpaceCheck {
 
     param(
         [string]$esxhost,
