@@ -14,7 +14,7 @@
 
 <#
 .Description
-    Returns the name & percentage of a datastore with low disk space (<10%)
+    Returns the name & percentage of a datastore with low disk space (<30%)
 .Parameters
     esxhost, user, pass
 .Exmaple
