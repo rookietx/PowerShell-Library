@@ -201,7 +201,7 @@ process {
                     SMB1ProtocolEnabled = $smb1ProtocolEnabled
                 }
 
-                Write-Output -InputObject $output
+                Write-Output -InputObject $output | fl
             }
         }
         
@@ -257,7 +257,7 @@ process {
                     SMB1ProtocolEnabled = $smb1ProtocolEnabled
                 }
 
-                Write-Output -InputObject $output
+                Write-Output -InputObject $output | fl
             }
         }
     }
