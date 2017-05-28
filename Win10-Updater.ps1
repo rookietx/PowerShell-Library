@@ -9,8 +9,8 @@
     https://github.com/MartynKeigher/PowerShell-Library
 .ReleaseNotes 
     1.0 - Initial Release. 
-    1.1 - Added Get-CurrentVersion func.
-    1.2 - Added Get-NextBuildNumber func.
+    1.1 - Added Get-CurrentBuild func.
+    1.2 - Added Get-NextUpdateBuildNo func.
     1.3 - Added Get-NextUpdateLink func.
     1.4 - Some typos... 
 #>
@@ -21,10 +21,10 @@
 .Parameters
     none.
 .Exmaple
-    PS C:\> Get-Item $env:WinDir\System32\WindowsPowerShell\v1.0\powershell.exe | .\Win10-Updater.ps1; Get-CurrentVersion
+    PS C:\> Get-Item $env:WinDir\System32\WindowsPowerShell\v1.0\powershell.exe | .\Win10-Updater.ps1; Get-CurrentBuild
 .Example
-    iwr https://raw.githubusercontent.com/MartynKeigher/PowerShell-Library/master/Win10-Updater.ps1 | iex; Get-CurrentVersion
-    iwr https://raw.githubusercontent.com/MartynKeigher/PowerShell-Library/master/Win10-Updater.ps1 | iex; Get-NextBuildNumber
+    iwr https://raw.githubusercontent.com/MartynKeigher/PowerShell-Library/master/Win10-Updater.ps1 | iex; Get-CurrentBuild
+    iwr https://raw.githubusercontent.com/MartynKeigher/PowerShell-Library/master/Win10-Updater.ps1 | iex; Get-NextUpdateBuildNo
     iwr https://raw.githubusercontent.com/MartynKeigher/PowerShell-Library/master/Win10-Updater.ps1 | iex; Get-Get-NextUpdateLink
    
 .Notes
@@ -32,7 +32,7 @@
 #>
 
 ##Function to retreiev the current build/revision of Win10
-function Get-CurrentVersion {
+function Get-CurrentBuild {
 
 $Maj = (Get-ItemProperty -Path 'Registry::HKEY_LOCAL_MACHINE\Software\Microsoft\Windows NT\CurrentVersion' CurrentMajorVersionNumber).CurrentMajorVersionNumber
 $Min = (Get-ItemProperty -Path 'Registry::HKEY_LOCAL_MACHINE\Software\Microsoft\Windows NT\CurrentVersion' CurrentMinorVersionNumber).CurrentMinorVersionNumber
@@ -44,8 +44,9 @@ $VER = "$Maj.$Min.$Bld.$Rev"
 }
 
 
-##Function to retreiev the next update build/revision number of Win10
-function Get-UpdateBuildNumber {
+##Function to retrieve the next update build/revision number of Win10
+
+function Get-NextUpdateBuildNo {
 
 [CmdletBinding()]
 Param(
@@ -116,8 +117,9 @@ $kbGUIDs = $kbObj.Links |
 }
 
 
-##Function to retreive the URL (for BITS?) of the next available update.
-function Get-UpdateLink {
+##Function to retrieve the URL (for BITS?) of the next available update.
+
+function Get-NextUpdateLink {
 
 [CmdletBinding()]
 Param(
