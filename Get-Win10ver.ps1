@@ -8,7 +8,8 @@
 .Github URL
     https://github.com/MartynKeigher/PowerShell-Library
 .ReleaseNotes 
-    1.0 - Initial Release.  
+    1.0 - Initial Release. 
+    1.1 - Removed PSObject req.
 #>
 
 
@@ -27,12 +28,11 @@
 
 function Get-Win10ver {
 
-$v = New-Object –TypeName PSObject
-$v | Add-Member –MemberType NoteProperty –Name Major –Value $(Get-ItemProperty -Path 'Registry::HKEY_LOCAL_MACHINE\Software\Microsoft\Windows NT\CurrentVersion' CurrentMajorVersionNumber).CurrentMajorVersionNumber
-$v | Add-Member –MemberType NoteProperty –Name Minor –Value $(Get-ItemProperty -Path 'Registry::HKEY_LOCAL_MACHINE\Software\Microsoft\Windows NT\CurrentVersion' CurrentMinorVersionNumber).CurrentMinorVersionNumber
-$v | Add-Member –MemberType NoteProperty –Name Build –Value $(Get-ItemProperty -Path 'Registry::HKEY_LOCAL_MACHINE\Software\Microsoft\Windows NT\CurrentVersion' CurrentBuild).CurrentBuild
-$v | Add-Member –MemberType NoteProperty –Name Revision –Value $(Get-ItemProperty -Path 'Registry::HKEY_LOCAL_MACHINE\Software\Microsoft\Windows NT\CurrentVersion' UBR).UBR
-$v = "$($v.Major).$($v.Minor).$($v.Build).$($v.Revision)"
-"$v"
+$Mai = (Get-ItemProperty -Path 'Registry::HKEY_LOCAL_MACHINE\Software\Microsoft\Windows NT\CurrentVersion' CurrentMajorVersionNumber).CurrentMajorVersionNumber
+$Min = (Get-ItemProperty -Path 'Registry::HKEY_LOCAL_MACHINE\Software\Microsoft\Windows NT\CurrentVersion' CurrentMinorVersionNumber).CurrentMinorVersionNumber
+$Bld = (Get-ItemProperty -Path 'Registry::HKEY_LOCAL_MACHINE\Software\Microsoft\Windows NT\CurrentVersion' CurrentBuild).CurrentBuild
+$Rev = (Get-ItemProperty -Path 'Registry::HKEY_LOCAL_MACHINE\Software\Microsoft\Windows NT\CurrentVersion' UBR).UBR
+$VER = "$($Maj).$($Min).$($Bld).$($Rev)"
+"$VER"
 
 }
