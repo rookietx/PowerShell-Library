@@ -1,3 +1,7 @@
+##Available Functions:
+## 1. Get-UpdateBuildNumber
+## 2. Get-UpdateLink
+
 function Get-UpdateBuildNumber {
 
 [CmdletBinding()]
