@@ -25,7 +25,7 @@
 .Example
     iwr https://raw.githubusercontent.com/MartynKeigher/PowerShell-Library/master/Win10-Updater.ps1 | iex; Get-CurrentBuild
     iwr https://raw.githubusercontent.com/MartynKeigher/PowerShell-Library/master/Win10-Updater.ps1 | iex; Get-NextUpdateBuildNo
-    iwr https://raw.githubusercontent.com/MartynKeigher/PowerShell-Library/master/Win10-Updater.ps1 | iex; Get-Get-NextUpdateLink
+    iwr https://raw.githubusercontent.com/MartynKeigher/PowerShell-Library/master/Win10-Updater.ps1 | iex; Get-NextUpdateLink
    
 .Notes
     More to follow
