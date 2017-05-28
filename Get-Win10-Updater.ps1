@@ -1,6 +1,19 @@
 ##Available Functions:
-## 1. Get-UpdateBuildNumber
-## 2. Get-UpdateLink
+## 1. Get-CurrentVersion
+## 2. Get-UpdateBuildNumber
+## 3. Get-UpdateLink
+
+
+function Get-CurrentVersion {
+
+$Maj = (Get-ItemProperty -Path 'Registry::HKEY_LOCAL_MACHINE\Software\Microsoft\Windows NT\CurrentVersion' CurrentMajorVersionNumber).CurrentMajorVersionNumber
+$Min = (Get-ItemProperty -Path 'Registry::HKEY_LOCAL_MACHINE\Software\Microsoft\Windows NT\CurrentVersion' CurrentMinorVersionNumber).CurrentMinorVersionNumber
+$Bld = (Get-ItemProperty -Path 'Registry::HKEY_LOCAL_MACHINE\Software\Microsoft\Windows NT\CurrentVersion' CurrentBuild).CurrentBuild
+$Rev = (Get-ItemProperty -Path 'Registry::HKEY_LOCAL_MACHINE\Software\Microsoft\Windows NT\CurrentVersion' UBR).UBR
+$VER = "$Maj.$Min.$Bld.$Rev"
+"$VER"
+
+}
 
 function Get-UpdateBuildNumber {
 
