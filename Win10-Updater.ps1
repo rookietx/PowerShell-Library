@@ -1,9 +1,37 @@
-##Available Functions:
-## 1. Get-CurrentVersion
-## 2. Get-UpdateBuildNumber
-## 3. Get-UpdateLink
+<#PSScriptInfo
+.Version
+    1.4
+.Author
+    Martyn T. Keigher (@martynkeigher)
+.Tags
+    win10, version, build, update
+.Github URL
+    https://github.com/MartynKeigher/PowerShell-Library
+.ReleaseNotes 
+    1.0 - Initial Release. 
+    1.1 - Added Get-CurrentVersion func.
+    1.2 - Added Get-NextBuildNumber func.
+    1.3 - Added Get-NextUpdateLink func.
+    1.4 - Some typos... 
+#>
 
+<#
+.Description
+    More to follow 
+.Parameters
+    none.
+.Exmaple
+    PS C:\> Get-Item $env:WinDir\System32\WindowsPowerShell\v1.0\powershell.exe | .\Win10-Updater.ps1; Get-CurrentVersion
+.Example
+    iwr https://raw.githubusercontent.com/MartynKeigher/PowerShell-Library/master/Win10-Updater.ps1 | iex; Get-CurrentVersion
+    iwr https://raw.githubusercontent.com/MartynKeigher/PowerShell-Library/master/Win10-Updater.ps1 | iex; Get-NextBuildNumber
+    iwr https://raw.githubusercontent.com/MartynKeigher/PowerShell-Library/master/Win10-Updater.ps1 | iex; Get-Get-NextUpdateLink
+   
+.Notes
+    More to follow
+#>
 
+##Function to retreiev the current build/revision of Win10
 function Get-CurrentVersion {
 
 $Maj = (Get-ItemProperty -Path 'Registry::HKEY_LOCAL_MACHINE\Software\Microsoft\Windows NT\CurrentVersion' CurrentMajorVersionNumber).CurrentMajorVersionNumber
@@ -15,6 +43,8 @@ $VER = "$Maj.$Min.$Bld.$Rev"
 
 }
 
+
+##Function to retreiev the next update build/revision number of Win10
 function Get-UpdateBuildNumber {
 
 [CmdletBinding()]
@@ -32,9 +62,6 @@ Param(
 
 )
 
-
-##Region Support Routine
-
 Function Select-LatestUpdate {
     [CmdletBinding(SupportsShouldProcess=$True)]
     Param(
@@ -60,9 +87,6 @@ Function Select-LatestUpdate {
     }
 }
 
-
-##Find the KB Article Number
-
 Write-Verbose "Downloading $StartKB to retrieve the list of updates."
 $kbID = Invoke-WebRequest -Uri $StartKB |
     Select-Object -ExpandProperty Content |
@@ -73,16 +97,12 @@ $kbID = Invoke-WebRequest -Uri $StartKB |
     Select-LatestUpdate |
     Select-Object -First 1
 
-
-##Download link from Windows Update
-
 Write-Verbose "Found ID: KB$($kbID.articleID)"
 $kbObj = Invoke-WebRequest -Uri "http://www.catalog.update.microsoft.com/Search.aspx?q=KB$($KBID.articleID)" 
 
 $Available_KBIDs = $kbObj.InputFields | 
     Where-Object { $_.type -eq 'Button' -and $_.Value -eq 'Download' } | 
     Select-Object -ExpandProperty  ID
-
 
 $Available_KBIDs | out-string | write-verbose
 
@@ -96,10 +116,8 @@ $kbGUIDs = $kbObj.Links |
 }
 
 
+##Function to retreive the URL (for BITS?) of the next available update.
 function Get-UpdateLink {
-
-
-##Define Params
 
 [CmdletBinding()]
 Param(
@@ -116,9 +134,6 @@ Param(
 
 )
 
-
-##Region Support Routine
-
 Function Select-LatestUpdate {
     [CmdletBinding(SupportsShouldProcess=$True)]
     Param(
@@ -144,9 +159,6 @@ Function Select-LatestUpdate {
     }
 }
 
-
-##Find the KB Article Number
-
 Write-Verbose "Downloading $StartKB to retrieve the list of updates."
 $kbID = Invoke-WebRequest -Uri $StartKB |
     Select-Object -ExpandProperty Content |
@@ -156,9 +168,6 @@ $kbID = Invoke-WebRequest -Uri $StartKB |
     Where-Object text -match $BUild |
     Select-LatestUpdate |
     Select-Object -First 1
-
-
-##Download link from Windows Update
 
 Write-Verbose "Found ID: KB$($kbID.articleID)"
 $kbObj = Invoke-WebRequest -Uri "http://www.catalog.update.microsoft.com/Search.aspx?q=KB$($KBID.articleID)" 
@@ -188,4 +197,3 @@ foreach ( $kbGUID in $kbGUIDs )
 
 }
 }
-
