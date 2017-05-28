@@ -1,10 +1,10 @@
 <#PSScriptInfo
 .Version
-    1.0
+    1.1
 .Author
     Martyn T. Keigher (@martynkeigher)
 .Tags
-    esx, iso
+    win10, version, build
 .Github URL
     https://github.com/MartynKeigher/PowerShell-Library
 .ReleaseNotes 
@@ -17,7 +17,7 @@
 .Description
     Returns the FULL build (including rev number) of the Win10 OS. 
 .Parameters
-    win10, version, build
+    none.
 .Exmaple
     PS C:\> Get-Item $env:WinDir\System32\WindowsPowerShell\v1.0\powershell.exe | .\Get-Win10ver.ps1; Get-Win10ver
 .Example
