@@ -20,7 +20,7 @@
 .Exmaple
     PS C:\> Get-Item $env:WinDir\System32\WindowsPowerShell\v1.0\powershell.exe | .\Get-Win10ver.ps1; Get-Win10ver
 .Example
-    iwr https://raw.githubusercontent.com/MartynKeigher/PowerShell-Library/master/PowerCLI/Get-Win10ver.ps1 | iex; Get-Win10ver
+    iwr https://raw.githubusercontent.com/MartynKeigher/PowerShell-Library/master/Get-Win10ver.ps1 | iex; Get-Win10ver
 .Notes
     Requires at least PoSH v3.
 #>
