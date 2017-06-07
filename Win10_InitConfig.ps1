@@ -66,7 +66,9 @@ Set-Service BITS -StartupType Automatic -ea SilentlyContinue | Out-Null
 Set-Service wuauserv -StartupType Automatic -ea SilentlyContinue | Out-Null
 sc.exe config wuauserv type= own | Out-Null
 
+<#
 
+Ignoring this section for now for .... reasons! 
 ##Disable needless services
 Set-Service AJRouter -StartupType Disabled -ea SilentlyContinue | Out-Null
 Set-Service ALG -StartupType Disabled -ea SilentlyContinue | Out-Null
@@ -110,6 +112,7 @@ Set-Service WMPNetworkSvc -StartupType Disabled -ea SilentlyContinue | Out-Null
 Set-Service XblAuthManager -StartupType Disabled -ea SilentlyContinue | Out-Null
 Set-Service XblGameSave -StartupType Disabled -ea SilentlyContinue | Out-Null
 Set-Service XboxNetApiSvc -StartupType Disabled -ea SilentlyContinue | Out-Null
+#>
 
 ## Disable Scheduled Tasks:
 Disable-ScheduledTask -TaskName "\Microsoft\Windows\Autochk\Proxy" -ea SilentlyContinue | Out-Null
