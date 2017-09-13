@@ -23,6 +23,8 @@ IF ($osVers -like '*10*'){
   Get-AppxPackage *bingsports* | Remove-AppxPackage | Out-Null
   Get-AppxPackage *soundrecorder* | Remove-AppxPackage | Out-Null
   Get-AppxPackage *xboxapp* | Remove-AppxPackage | Out-Null
+  Get-AppxPackage *feedbackhub* | Remove-AppxPackage | Out-Null
+  Get-AppxPackage *Microsoft.OneConnect* | Remove-AppxPackage | Out-Null
 
   ##Disable Cortana
   New-Item -Path 'HKLM:\SOFTWARE\Policies\Microsoft\Windows\' -Name 'Windows Search' | Out-Null
